@@ -1,6 +1,6 @@
 import streamlit as st
 from services.blob_service import upload_blob
-from services.credit_card_service import detect_credit_card_info
+from services.credit_card_service import analyze_credit_card
 
 def configure_interface():
     st.title("Upload de Arquivo DIO Desafio 1 Azure Fake Docs")
@@ -14,7 +14,7 @@ def configure_interface():
         blob_url = upload_blob(uploaded_file, file_name)
 
         # Chamar a função de detecção de informações de cartão de crédito
-        credit_card_info = detect_credit_card_info(blob_url)
+        credit_card_info = analyze_credit_card(blob_url)
 
         if blob_url:
             st.write(f"Arquivo {file_name} enviado com sucesso para o Azure Blob Storage")
