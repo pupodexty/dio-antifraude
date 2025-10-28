@@ -1,4 +1,5 @@
 import streamlit as st
+from services.blob.service as upload_blob
 
 def configure_interface():
     st.title("Upload de Arquivo DIO Desafio 1 Azure Fake Docs")
@@ -9,8 +10,7 @@ def configure_interface():
         file_name = uploaded_file.name
 
         # Enviar para o Blob Storage
-        # Aqui você chamaria sua função de upload e obteria a URL do blob
-        blob_url = upload_to_blob(uploaded_file)  # Exemplo de função fictícia
+        blob_url = upload_blob(uploaded_file, file_name)
 
         # Chamar a função de detecção de informações de cartão de crédito
         credit_card_info = detect_credit_card_info(blob_url)  # Função fictícia
